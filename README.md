@@ -1,89 +1,16 @@
-<div align="center">
+# Hi, I'm kolihhan
 
-# kolihhan
+I've been learning more about AI by building small projects, mostly in Python. Quite interested in local models, search, and getting models to use tools properly.
 
-### Building AI systems that can be tested, inspected, and improved.
+These are some projects I worked on last semester. Finally putting them on GitHub in September 2026 and keeping the code and notes together here.
 
-Local models · Retrieval · Tool-using agents · Evaluation
+### Some things I've been working on
 
-[Explore my work](#selected-projects) · [How I build](#engineering-approach)
+- [Text-to-SQL](https://github.com/kolihhan/semantic-text2sql-agent) — Turning questions into SQL, with checks and a retry step when the query fails. Built with LangGraph and SQLite.
+- [Local RAG Search](https://github.com/kolihhan/local-rag-search) — Trying out keyword search and embeddings together, and checking how the results compare.
+- [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor) — A tutor that can look through a video's transcript and frames to answer questions.
+- [Small-Agent QLoRA](https://github.com/kolihhan/small-agent-qlora) — Trying to improve a small model's tool use with fine-tuning. Still limited by what my machine can run.
 
-</div>
+Mostly using **Python, Ollama, SQLite, LangGraph and Streamlit** across these projects.
 
----
-
-I build practical AI applications with Python, from SQL verification and hybrid search to multimodal tutoring and small-model agents. My focus is the full loop: build a working system, compare it against a baseline, and understand where it fails.
-
-## Selected projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 01 / Text-to-SQL Reliability
-
-**Can a verifier make generated SQL more reliable?**
-
-A LangGraph workflow combining local SQL generation, read-only SQLite checks, and bounded repair. Paired BIRD evaluations separate execution success from answer correctness.
-
-`Python` `LangGraph` `SQLite` `Ollama`
-
-[Explore the project →](https://github.com/kolihhan/semantic-text2sql-agent)
-
-</td>
-<td width="50%" valign="top">
-
-### 02 / Local RAG Search
-
-**When does hybrid retrieval help?**
-
-BM25 and Qwen embeddings combined with reciprocal rank fusion. Includes a CLI, API, and paired retrieval evaluation with recall, ranking, and latency measurements.
-
-`Python` `BM25` `Embeddings` `RRF`
-
-[Explore the project →](https://github.com/kolihhan/local-rag-search)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 03 / Hermes Video Tutor
-
-**What does a transcript miss?**
-
-A tutor that searches transcripts and inspects frames or clips to answer with evidence. A small synthetic paired evaluation examines when visual tools help.
-
-`Python` `Hermes` `Multimodal` `Streamlit`
-
-[Explore the project →](https://github.com/kolihhan/hermes-video-tutor)
-
-</td>
-<td width="50%" valign="top">
-
-### 04 / Small-Agent QLoRA
-
-**Can verified trajectories improve a small tool agent?**
-
-A local Qwen agent with search, read, inspect, and Python tools, plus a controlled QLoRA experiment pipeline. The current experiment is limited by local hardware resources.
-
-`Python` `Qwen` `QLoRA` `Tool use`
-
-[Explore the project →](https://github.com/kolihhan/small-agent-qlora)
-
-</td>
-</tr>
-</table>
-
-## Engineering approach
-
-- **Start with a baseline.** Measure what added complexity actually buys.
-- **Make behavior inspectable.** Keep tool traces, evidence, and evaluation artifacts.
-- **Report the tradeoffs.** Accuracy, latency, model calls, and resource limits all matter.
-- **Keep claims proportional to evidence.** Small fixtures and negative results have a place.
-
----
-
-<div align="center">
-<sub>Reliable behavior starts with a measurable question.</sub>
-</div>
+Still learning. I keep the results and limitations in the repos, including the things that didn't work out.
