@@ -1,28 +1,28 @@
 # Ko Lih Han
 
-Software engineer building applied AI systems around **LLM workflows, retrieval, and tool-using agents**. My projects focus on reproducible evaluation, failure analysis, and the engineering trade-offs behind whether a technique is worth keeping.
+Software engineer working on applied AI and backend systems.
 
-I also have production software experience with Laravel/Vue.js, Linux, MySQL, deployments, queue workers, SSL, and server operations.
+I mostly build with Python, LLMs, retrieval, agents, and APIs. Before moving deeper into AI work, I spent several years building and maintaining Laravel/Vue applications in production, including deployments, queues, databases, and server issues.
 
-## Selected work
+## Projects
 
-### [Semantic Text-to-SQL Reliability](https://github.com/kolihhan/semantic-text2sql-agent)
-LangGraph Text-to-SQL with deterministic SQL checks, read-only execution, and bounded repair. On 100 BIRD DEV cases, the guarded path raised execution success from **70% to 88%** while official BIRD EX moved from **30% to 33%**; the repo also records the added model-call and latency cost.
+### [Semantic Text-to-SQL](https://github.com/kolihhan/semantic-text2sql-agent)
+A local Text-to-SQL service built with LangGraph, FastAPI, and SQLite. It validates generated SQL, runs queries read-only, and can retry failed queries using the database error. On 100 BIRD DEV questions, execution success went from **70% to 88%**; official EX went from **30% to 33%**.
 
 ### [Local RAG Search](https://github.com/kolihhan/local-rag-search)
-Hybrid retrieval with BM25, Qwen dense embeddings, and reciprocal rank fusion behind shared CLI/FastAPI interfaces. On a frozen **12-query EnterpriseRAG-Bench Confluence subset**, RRF reached **0.92 Recall@10 / 0.80 MRR@20** versus **0.75 / 0.55** for BM25.
+Hybrid search with BM25, Qwen embeddings, and reciprocal rank fusion, available through a CLI and FastAPI. On a 12-query EnterpriseRAG-Bench subset, RRF reached **0.92 Recall@10** and **0.80 MRR@20**, compared with **0.75** and **0.55** for BM25.
 
 ### [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor)
-A multimodal tool-calling agent that searches transcripts and inspects frames or short clips when visual evidence is needed. Hermes chooses the next tool dynamically; evaluation keeps answer correctness, citation validity, modality, and evidence timing separate.
+A video QA agent that can search transcripts and look at frames or short clips. The model decides which tool to use based on the question and keeps source evidence with the answer.
 
-## Research
+## Master's research
 
-**M.S. thesis, National Tsing Hua University** — role- and context-aware retrieval for workplace implicit-intent generation. On **401 held-out utterances**, the best role-context fusion improved semantic F1 from **0.625 to 0.689**.
+**Interpreting Implicit Intent through Workplace Hierarchies and Context** — studied how workplace relationships and conversational context affect implicit meaning in workplace dialogue.
 
-## Experiments
+## Other work
 
-- [**Small-Agent QLoRA**](https://github.com/kolihhan/small-agent-qlora) — local Qwen tool agent with search/read/inspect/python tools, bounded execution, visible traces, deterministic GAIA partitions, and a Base-vs-LoRA evaluation pipeline. The paired QLoRA result is still pending, so no improvement claim is made.
+[**Small-Agent QLoRA**](https://github.com/kolihhan/small-agent-qlora) is a work-in-progress local tool agent. I'm using it to test whether QLoRA can help a small Qwen model choose and use tools more reliably. The Base vs LoRA comparison is not finished yet.
 
 ## Main tools
 
-**Python · LangGraph · FastAPI · Ollama · SQLite · BM25 · Dense Retrieval · RRF · pytest**
+Python · LangGraph · FastAPI · Ollama · SQLite · BM25 · Dense Retrieval · RRF · pytest
