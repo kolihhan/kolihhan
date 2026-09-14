@@ -2,7 +2,7 @@
 
 Software engineer working on applied AI and backend systems.
 
-I mostly build with Python, LLMs, retrieval, agents, and APIs. Before moving deeper into AI work, I spent several years building and maintaining Laravel/Vue applications in production, including deployments, queues, databases, and server issues.
+I mostly build with Python, LLMs, retrieval, agents, and APIs. I also have several years of experience building and maintaining Laravel/Vue applications in production, including deployments, queues, databases, and server issues.
 
 ## Projects
 
@@ -22,7 +22,3 @@ A video QA agent that can search transcripts and look at frames or short clips. 
 ## Other work
 
 [**Small-Agent QLoRA**](https://github.com/kolihhan/small-agent-qlora) is a work-in-progress local tool agent. I'm using it to test whether QLoRA can help a small Qwen model choose and use tools more reliably. The Base vs LoRA comparison is not finished yet.
-
-## Main tools
-
-Python · LangGraph · FastAPI · Ollama · SQLite · BM25 · Dense Retrieval · RRF · pytest
