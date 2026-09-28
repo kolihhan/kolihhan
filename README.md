@@ -1,24 +1,112 @@
-# Ko Lih Han
+<p align="center">
+  <img src="./assets/profile-banner.svg" width="100%" alt="Ko Lih Han — Software Engineer, Applied AI and LLM Systems" />
+</p>
 
-Software engineer working on applied AI and backend systems.
+<p align="center">
+  <strong>Building practical AI systems that retrieve, reason, use tools, and survive contact with real software.</strong>
+</p>
 
-I mostly build with Python, LLMs, retrieval, agents, and APIs. I also have several years of experience building and maintaining Laravel/Vue applications in production, including deployments, queues, databases, and server issues.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-111827?style=for-the-badge&logo=python&logoColor=67E8F9" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-111827?style=for-the-badge&logo=fastapi&logoColor=67E8F9" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/LangGraph-111827?style=for-the-badge&logo=langchain&logoColor=A5B4FC" alt="LangGraph" />
+  <img src="https://img.shields.io/badge/LLM_Systems-111827?style=for-the-badge&logoColor=D8B4FE" alt="LLM Systems" />
+  <img src="https://img.shields.io/badge/RAG-111827?style=for-the-badge&logoColor=67E8F9" alt="RAG" />
+  <img src="https://img.shields.io/badge/Agents-111827?style=for-the-badge&logoColor=A5B4FC" alt="Agents" />
+</p>
 
-## Projects
+---
 
-### [Semantic Text-to-SQL](https://github.com/kolihhan/semantic-text2sql-agent)
-A local Text-to-SQL service built with LangGraph, FastAPI, and SQLite. It validates generated SQL, runs queries read-only, and can retry failed queries using the database error. On 100 BIRD DEV questions, execution success went from **70% to 88%**; official EX went from **30% to 33%**.
+## `> about_me`
 
-### [Local RAG Search](https://github.com/kolihhan/local-rag-search)
-Hybrid search with BM25, Qwen embeddings, and reciprocal rank fusion, available through a CLI and FastAPI. On a 12-query EnterpriseRAG-Bench subset, RRF reached **0.92 Recall@10** and **0.80 MRR@20**, compared with **0.75** and **0.55** for BM25.
+I'm a software engineer focused on **applied AI, LLM systems, retrieval, agents, and backend engineering**.
 
-### [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor)
-A video QA agent that can search transcripts and look at frames or short clips. The model decides which tool to use based on the question and keeps source evidence with the answer.
+I like building systems end to end: retrieval pipelines, tool-using agents, APIs, evaluation harnesses, and the less glamorous parts that make them actually work. Before focusing on AI, I spent several years building and maintaining **Laravel / Vue** applications in production.
 
-## Master's research
+Currently finishing my master's at **National Tsing Hua University**, where my research studies how workplace relationships and conversational context affect implicit meaning in dialogue.
 
-**Interpreting Implicit Intent through Workplace Hierarchies and Context** — studied how workplace relationships and conversational context affect implicit meaning in workplace dialogue.
+## `> featured_projects`
 
-## Other work
+<table>
+<tr>
+<td width="33%" valign="top">
 
-[**Small-Agent QLoRA**](https://github.com/kolihhan/small-agent-qlora) is a work-in-progress local tool agent. I'm using it to test whether QLoRA can help a small Qwen model choose and use tools more reliably. The Base vs LoRA comparison is not finished yet.
+### 🧠 Semantic Text-to-SQL
+
+Local NL → SQL system with **LangGraph + FastAPI + SQLite**.
+
+Generates SQL, verifies it, executes read-only, and uses a bounded repair loop when execution fails.
+
+**100 BIRD DEV questions**  
+`30 → 33` official EX  
+`70% → 88%` execution success
+
+<a href="https://github.com/kolihhan/semantic-text2sql-agent"><strong>View repository →</strong></a>
+
+</td>
+<td width="33%" valign="top">
+
+### 🔎 Local RAG Search
+
+Hybrid retrieval with **BM25 + Qwen embeddings + reciprocal rank fusion**.
+
+Built as a reusable local search service with CLI, FastAPI, persistent embeddings, and explainable ranking.
+
+**EnterpriseRAG-Bench subset**  
+`0.9167` Recall@10  
+`0.7986` MRR@20
+
+<a href="https://github.com/kolihhan/local-rag-search"><strong>View repository →</strong></a>
+
+</td>
+<td width="33%" valign="top">
+
+### 🎬 Hermes Video Tutor
+
+Multimodal QA agent that decides when to **search transcripts, expand context, inspect frames, or inspect clips**.
+
+Answers keep source evidence, and the agent can abstain when evidence is insufficient.
+
+`Hermes` · `tool use` · `multimodal`  
+`local LLM` · `evidence-grounded`
+
+<a href="https://github.com/kolihhan/hermes-video-tutor"><strong>View repository →</strong></a>
+
+</td>
+</tr>
+</table>
+
+## `> engineering_stack`
+
+<p>
+  <img src="https://img.shields.io/badge/Python-0F172A?style=flat-square&logo=python&logoColor=38BDF8" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-0F172A?style=flat-square&logo=fastapi&logoColor=2DD4BF" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/PyTorch-0F172A?style=flat-square&logo=pytorch&logoColor=FB7185" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/SQLite-0F172A?style=flat-square&logo=sqlite&logoColor=7DD3FC" alt="SQLite" />
+  <img src="https://img.shields.io/badge/Docker-0F172A?style=flat-square&logo=docker&logoColor=60A5FA" alt="Docker" />
+  <img src="https://img.shields.io/badge/Git-0F172A?style=flat-square&logo=git&logoColor=F97316" alt="Git" />
+  <img src="https://img.shields.io/badge/Laravel-0F172A?style=flat-square&logo=laravel&logoColor=FB7185" alt="Laravel" />
+  <img src="https://img.shields.io/badge/Vue.js-0F172A?style=flat-square&logo=vuedotjs&logoColor=34D399" alt="Vue.js" />
+</p>
+
+```text
+AI systems      LLMs · RAG · hybrid retrieval · agents · tool use · evaluation
+Backend         Python · FastAPI · REST APIs · SQLite · queues · service design
+Web             Laravel · Vue.js · production maintenance · deployments
+Engineering     benchmarking · failure analysis · reproducible experiments
+```
+
+## `> research`
+
+**Interpreting Implicit Intent through Workplace Hierarchies and Context**  
+Studying how workplace relationships and conversational context change the interpretation of implicit meaning in dialogue.
+
+## `> currently_exploring`
+
+🧪 **[Small-Agent QLoRA](https://github.com/kolihhan/small-agent-qlora)** — a controlled local experiment testing whether QLoRA can improve tool selection and tool use in a small Qwen agent. Evaluation is still in progress, so I keep the claims modest.
+
+---
+
+<p align="center">
+  <code>build → measure → inspect failures → improve</code>
+</p>
