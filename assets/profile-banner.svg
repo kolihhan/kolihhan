@@ -1,6 +1,6 @@
-<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="70" y1="20" x2="1130" y2="340" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="70" y1="20" x2="1130" y2="280" gradientUnits="userSpaceOnUse">
       <stop stop-color="#07111F"/>
       <stop offset="0.48" stop-color="#0B1730"/>
       <stop offset="1" stop-color="#111827"/>
@@ -10,73 +10,47 @@
       <stop offset="0.45" stop-color="#818CF8"/>
       <stop offset="1" stop-color="#C084FC"/>
     </linearGradient>
-    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1030 70) rotate(132) scale(300 260)">
-      <stop stop-color="#6366F1" stop-opacity="0.34"/>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1040 60) rotate(132) scale(300 240)">
+      <stop stop-color="#6366F1" stop-opacity="0.32"/>
       <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(160 330) rotate(-30) scale(340 250)">
-      <stop stop-color="#06B6D4" stop-opacity="0.20"/>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 280) rotate(-30) scale(320 220)">
+      <stop stop-color="#06B6D4" stop-opacity="0.18"/>
       <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
     </radialGradient>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#94A3B8" stroke-opacity="0.07" stroke-width="1"/>
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#94A3B8" stroke-opacity="0.065" stroke-width="1"/>
     </pattern>
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="7" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
     <style>
       .name { font: 700 58px 'Inter', 'Segoe UI', Arial, sans-serif; letter-spacing: -1.5px; }
       .role { font: 500 25px 'Inter', 'Segoe UI', Arial, sans-serif; letter-spacing: 0.2px; }
       .mono { font: 500 15px 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; }
-      .label { font: 600 14px 'Inter', 'Segoe UI', Arial, sans-serif; letter-spacing: .3px; }
     </style>
   </defs>
 
-  <rect width="1200" height="360" rx="26" fill="url(#bg)"/>
-  <rect width="1200" height="360" rx="26" fill="url(#grid)"/>
-  <rect width="1200" height="360" rx="26" fill="url(#glow1)"/>
-  <rect width="1200" height="360" rx="26" fill="url(#glow2)"/>
+  <rect width="1200" height="300" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="26" fill="url(#grid)"/>
+  <rect width="1200" height="300" rx="26" fill="url(#glow1)"/>
+  <rect width="1200" height="300" rx="26" fill="url(#glow2)"/>
 
-  <circle cx="1076" cy="85" r="4" fill="#67E8F9" opacity="0.9" filter="url(#softGlow)"/>
-  <circle cx="1110" cy="120" r="3" fill="#C084FC" opacity="0.8"/>
-  <circle cx="1015" cy="53" r="2" fill="#818CF8" opacity="0.8"/>
+  <rect x="82" y="48" width="178" height="34" rx="17" fill="#0F1D33" stroke="#334155"/>
+  <circle cx="102" cy="65" r="5" fill="#34D399"/>
+  <text x="116" y="71" class="mono" fill="#CBD5E1">~/kolihhan</text>
 
-  <rect x="82" y="58" width="178" height="34" rx="17" fill="#0F1D33" stroke="#334155"/>
-  <circle cx="102" cy="75" r="5" fill="#34D399"/>
-  <text x="116" y="81" class="mono" fill="#CBD5E1">~/kolihhan</text>
+  <text x="80" y="154" class="name" fill="url(#accent)">Ko Lih Han</text>
+  <text x="82" y="197" class="role" fill="#E2E8F0">Software Engineer · Applied AI &amp; LLM Systems</text>
+  <text x="82" y="236" class="mono" fill="#94A3B8">retrieval  /  agents  /  evaluation  /  backend systems</text>
 
-  <text x="80" y="170" class="name" fill="url(#accent)">Ko Lih Han</text>
-  <text x="82" y="213" class="role" fill="#E2E8F0">Software Engineer · Applied AI &amp; LLM Systems</text>
-  <text x="82" y="252" class="mono" fill="#94A3B8">local models  /  retrieval  /  agents  /  backend systems</text>
+  <path d="M862 82 C933 92, 916 160, 982 171 C1041 181, 1070 141, 1124 166" stroke="url(#accent)" stroke-width="2" stroke-opacity="0.55" fill="none"/>
+  <circle cx="862" cy="82" r="7" fill="#67E8F9"/>
+  <circle cx="982" cy="171" r="7" fill="#818CF8"/>
+  <circle cx="1124" cy="166" r="7" fill="#C084FC"/>
 
-  <g transform="translate(82 286)">
-    <rect width="122" height="34" rx="8" fill="#0D2130" stroke="#155E75"/>
-    <text x="17" y="22" class="label" fill="#67E8F9">PYTHON</text>
-
-    <rect x="134" width="118" height="34" rx="8" fill="#111C36" stroke="#3730A3"/>
-    <text x="151" y="22" class="label" fill="#A5B4FC">FASTAPI</text>
-
-    <rect x="264" width="128" height="34" rx="8" fill="#20162F" stroke="#6B21A8"/>
-    <text x="280" y="22" class="label" fill="#D8B4FE">LANGGRAPH</text>
-
-    <rect x="404" width="92" height="34" rx="8" fill="#172033" stroke="#334155"/>
-    <text x="425" y="22" class="label" fill="#CBD5E1">RAG</text>
-  </g>
-
-  <path d="M862 105 C933 115, 916 183, 982 194 C1041 204, 1070 164, 1124 189" stroke="url(#accent)" stroke-width="2" stroke-opacity="0.55" fill="none"/>
-  <circle cx="862" cy="105" r="7" fill="#67E8F9"/>
-  <circle cx="982" cy="194" r="7" fill="#818CF8"/>
-  <circle cx="1124" cy="189" r="7" fill="#C084FC"/>
-
-  <g opacity="0.85">
-    <rect x="858" y="234" width="268" height="72" rx="13" fill="#08111F" stroke="#26354A"/>
-    <circle cx="879" cy="254" r="4" fill="#FB7185"/>
-    <circle cx="894" cy="254" r="4" fill="#FBBF24"/>
-    <circle cx="909" cy="254" r="4" fill="#34D399"/>
-    <text x="878" y="282" class="mono" fill="#94A3B8">$ build --measure --iterate</text>
+  <g opacity="0.86">
+    <rect x="858" y="208" width="268" height="58" rx="13" fill="#08111F" stroke="#26354A"/>
+    <circle cx="879" cy="226" r="4" fill="#FB7185"/>
+    <circle cx="894" cy="226" r="4" fill="#FBBF24"/>
+    <circle cx="909" cy="226" r="4" fill="#34D399"/>
+    <text x="878" y="251" class="mono" fill="#94A3B8">$ build --measure --iterate</text>
   </g>
 </svg>

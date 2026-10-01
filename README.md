@@ -3,29 +3,22 @@
 </p>
 
 <p align="center">
-  <strong>Building practical AI systems that retrieve, reason, use tools, and survive contact with real software.</strong>
+  <strong>Software engineer building applied AI systems that retrieve, reason, use tools, and hold up under real software constraints.</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-111827?style=for-the-badge&logo=python&logoColor=67E8F9" alt="Python" />
-  <img src="https://img.shields.io/badge/FastAPI-111827?style=for-the-badge&logo=fastapi&logoColor=67E8F9" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/LangGraph-111827?style=for-the-badge&logo=langchain&logoColor=A5B4FC" alt="LangGraph" />
-  <img src="https://img.shields.io/badge/LLM_Systems-111827?style=for-the-badge&logoColor=D8B4FE" alt="LLM Systems" />
-  <img src="https://img.shields.io/badge/RAG-111827?style=for-the-badge&logoColor=67E8F9" alt="RAG" />
-  <img src="https://img.shields.io/badge/Agents-111827?style=for-the-badge&logoColor=A5B4FC" alt="Agents" />
+  <img src="https://skillicons.dev/icons?i=python,fastapi,pytorch,docker,git,sqlite,vue,laravel&perline=8" alt="Python, FastAPI, PyTorch, Docker, Git, SQLite, Vue, Laravel" />
 </p>
 
 ---
 
-## `> about_me`
+## About
 
-I'm a software engineer focused on **applied AI, LLM systems, retrieval, agents, and backend engineering**.
+I work across **applied AI, LLM systems, retrieval, agents, and backend engineering**. I like building the full path around a model — APIs, retrieval, tool use, evaluation, failure handling, and the production details that make a system usable.
 
-I like building systems end to end: retrieval pipelines, tool-using agents, APIs, evaluation harnesses, and the less glamorous parts that make them actually work. Before focusing on AI, I spent several years building and maintaining **Laravel / Vue** applications in production.
+Before focusing on AI, I spent several years building and maintaining **Laravel / Vue** applications in production. I am finishing my master's at **National Tsing Hua University**, where my research studies how workplace relationships and conversational context affect implicit meaning in dialogue.
 
-Currently finishing my master's at **National Tsing Hua University**, where my research studies how workplace relationships and conversational context affect implicit meaning in dialogue.
-
-## `> featured_projects`
+## Selected work
 
 <table>
 <tr>
@@ -33,77 +26,61 @@ Currently finishing my master's at **National Tsing Hua University**, where my r
 
 ### 🧠 Semantic Text-to-SQL
 
-Local NL → SQL system with **LangGraph + FastAPI + SQLite**.
+Local NL → SQL with **LangGraph + FastAPI + SQLite**.
 
-Generates SQL, verifies it, executes read-only, and uses a bounded repair loop when execution fails.
+Generate → verify → bounded repair → read-only execute.
 
-**100 BIRD DEV questions**  
-`30 → 33` official EX  
-`70% → 88%` execution success
+**Frozen 100-query BIRD DEV slice**  
+`31% → 34%` official EX  
+`63% → 82%` execution success
 
-<a href="https://github.com/kolihhan/semantic-text2sql-agent"><strong>View repository →</strong></a>
+<a href="https://github.com/kolihhan/semantic-text2sql-agent"><strong>View project →</strong></a>
 
 </td>
 <td width="33%" valign="top">
 
 ### 🔎 Local RAG Search
 
-Hybrid retrieval with **BM25 + Qwen embeddings + reciprocal rank fusion**.
+Local hybrid retrieval with **BM25 + Qwen embeddings + RRF**.
 
-Built as a reusable local search service with CLI, FastAPI, persistent embeddings, and explainable ranking.
+Search results expose lexical, dense, and final fusion rank provenance.
 
-**EnterpriseRAG-Bench subset**  
-`0.9167` Recall@10  
-`0.7986` MRR@20
+**64-query Confluence slice**  
+`0.7630` Recall@10  
+`0.7418` MRR@20
 
-<a href="https://github.com/kolihhan/local-rag-search"><strong>View repository →</strong></a>
+<a href="https://github.com/kolihhan/local-rag-search"><strong>View project →</strong></a>
 
 </td>
 <td width="33%" valign="top">
 
 ### 🎬 Hermes Video Tutor
 
-Multimodal QA agent that decides when to **search transcripts, expand context, inspect frames, or inspect clips**.
+Multimodal QA agent that decides when to search transcripts or inspect video evidence.
 
-Answers keep source evidence, and the agent can abstain when evidence is insufficient.
+**12-case paired evaluation**  
+`66.7%` visual-required full pass  
+`100%` visual tool use on visual questions
 
-`Hermes` · `tool use` · `multimodal`  
-`local LLM` · `evidence-grounded`
-
-<a href="https://github.com/kolihhan/hermes-video-tutor"><strong>View repository →</strong></a>
+<a href="https://github.com/kolihhan/hermes-video-tutor"><strong>View project →</strong></a>
 
 </td>
 </tr>
 </table>
 
-## `> engineering_stack`
-
-<p>
-  <img src="https://img.shields.io/badge/Python-0F172A?style=flat-square&logo=python&logoColor=38BDF8" alt="Python" />
-  <img src="https://img.shields.io/badge/FastAPI-0F172A?style=flat-square&logo=fastapi&logoColor=2DD4BF" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/PyTorch-0F172A?style=flat-square&logo=pytorch&logoColor=FB7185" alt="PyTorch" />
-  <img src="https://img.shields.io/badge/SQLite-0F172A?style=flat-square&logo=sqlite&logoColor=7DD3FC" alt="SQLite" />
-  <img src="https://img.shields.io/badge/Docker-0F172A?style=flat-square&logo=docker&logoColor=60A5FA" alt="Docker" />
-  <img src="https://img.shields.io/badge/Git-0F172A?style=flat-square&logo=git&logoColor=F97316" alt="Git" />
-  <img src="https://img.shields.io/badge/Laravel-0F172A?style=flat-square&logo=laravel&logoColor=FB7185" alt="Laravel" />
-  <img src="https://img.shields.io/badge/Vue.js-0F172A?style=flat-square&logo=vuedotjs&logoColor=34D399" alt="Vue.js" />
-</p>
+## Engineering focus
 
 ```text
-AI systems      LLMs · RAG · hybrid retrieval · agents · tool use · evaluation
-Backend         Python · FastAPI · REST APIs · SQLite · queues · service design
-Web             Laravel · Vue.js · production maintenance · deployments
-Engineering     benchmarking · failure analysis · reproducible experiments
+Applied AI      LLMs · RAG · hybrid retrieval · agents · tool use
+Backend         Python · FastAPI · REST APIs · SQLite · queues
+Evaluation      benchmark design · failure analysis · reproducible runs
+Production      Laravel · Vue.js · deployments · maintenance
 ```
 
-## `> research`
+## Background
 
-**Interpreting Implicit Intent through Workplace Hierarchies and Context**  
-Studying how workplace relationships and conversational context change the interpretation of implicit meaning in dialogue.
-
-## `> currently_exploring`
-
-🧪 **[Small-Agent QLoRA](https://github.com/kolihhan/small-agent-qlora)** — a controlled local experiment testing whether QLoRA can improve tool selection and tool use in a small Qwen agent. Evaluation is still in progress, so I keep the claims modest.
+**M.S., National Tsing Hua University** — research on context-aware implicit meaning in workplace dialogue.  
+**Software engineering** — production web systems, backend workflows, deployments, and maintenance before moving deeper into applied AI.
 
 ---
 
