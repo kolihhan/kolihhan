@@ -1,43 +1,54 @@
 # Ko Lih Han
 
-Software engineer working on **applied AI and backend systems**.
+**Software Engineer · Applied AI / Backend**
 
-I mostly build with Python and FastAPI, with a focus on retrieval, tool-using agents, local models, and evaluation. Before moving deeper into applied AI, I spent several years building and maintaining Laravel / Vue applications in production.
+<sub>Python · FastAPI · Retrieval · Agents · Evaluation · Local LLMs</sub>
+
+I build applied AI and backend systems with a focus on retrieval quality, tool behavior, and measurable failure modes. Before moving deeper into AI, I spent several years building and maintaining Laravel / Vue applications in production.
+
+---
 
 ## Selected projects
 
 ### [Semantic Text-to-SQL](https://github.com/kolihhan/semantic-text2sql-agent)
 
-A local Text-to-SQL system with schema grounding, deterministic verification, bounded repair, and read-only execution.
+Local NL → SQL with schema grounding, deterministic verification, bounded repair, and read-only execution.
 
-On the current frozen 100-query BIRD DEV slice, guarded verification + repair improved EX-compatible match from **33% to 39%** and conservative execution success from **75% to 90%**.
+**33% → 39%** EX-compatible match · **75% → 90%** conservative execution success  
+<sub>Frozen 100-query BIRD DEV slice · [View repository →](https://github.com/kolihhan/semantic-text2sql-agent)</sub>
 
 ### [Local RAG Search](https://github.com/kolihhan/local-rag-search)
 
-Hybrid retrieval with BM25, local Qwen embeddings, and reciprocal rank fusion. Results keep BM25, dense, and final fusion ranks visible so failures are easier to inspect.
+Hybrid retrieval with BM25, local Qwen embeddings, and reciprocal rank fusion with visible rank provenance.
 
-On a frozen 64-query / 5,189-document slice, hybrid RRF reached **0.7630 Recall@10** and **0.7418 MRR@20**.
+**0.7630** Recall@10 · **0.7418** MRR@20 · **0.8438** Hit@10  
+<sub>Frozen 64-query / 5,189-document slice · [View repository →](https://github.com/kolihhan/local-rag-search)</sub>
 
 ### [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor)
 
 A local video QA agent that searches transcripts and decides when it needs to inspect a frame or short clip.
 
-On a small 12-question paired fixture, it reached **66.7% strict full pass on visual-required questions** and used a visual tool on **100%** of those questions.
+**66.7%** visual-required strict full pass · **100%** visual-tool use on visual questions  
+<sub>Small 12-question paired fixture · [View repository →](https://github.com/kolihhan/hermes-video-tutor)</sub>
 
 ### [Small-Agent QLoRA](https://github.com/kolihhan/small-agent-qlora)
 
-An experiment on whether QLoRA can improve tool use in a small local agent. The agent runtime, training pipeline, leakage guards, and Base-vs-LoRA comparator are implemented; there is **no valid uplift claim yet**.
+An experiment on whether QLoRA can improve tool use in a small local agent.
 
-## What I work with
+**Status:** experiment infrastructure is implemented; there is **no valid Base-vs-LoRA uplift claim yet**.  
+<sub>[View repository →](https://github.com/kolihhan/small-agent-qlora)</sub>
 
-**Applied AI:** LLMs, RAG, agents, tool use, multimodal systems  
-**Backend:** Python, FastAPI, REST APIs, SQLite, queues  
-**Local AI:** Ollama, Qwen, PyTorch  
-**Web:** Laravel, Vue.js  
-**Engineering:** evaluation, failure analysis, reproducible runs, production debugging
+---
+
+## Stack
+
+`Python` `FastAPI` `PyTorch` `Ollama` `SQLite` `Laravel` `Vue.js`
+
+**Applied AI** — LLMs, RAG, agents, tool use, multimodal systems  
+**Engineering** — evaluation, failure analysis, reproducible runs, production debugging
 
 ## Background
 
 **M.S., National Tsing Hua University** — research on context-aware implicit meaning in workplace dialogue.
 
-I started in software engineering and production web systems, then moved toward applied AI systems where retrieval quality, tool behavior, and failure modes can be measured directly.
+Software engineering background in production web systems, backend workflows, deployment, and maintenance.
