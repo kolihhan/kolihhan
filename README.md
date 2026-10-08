@@ -2,9 +2,7 @@
 
 **Software Engineer · Applied AI / Backend**
 
-<sub>Python · FastAPI · Retrieval · Agents · Evaluation · Local LLMs</sub>
-
-I build applied AI and backend systems with a focus on retrieval quality, tool behavior, and measurable failure modes. Before moving deeper into AI, I spent several years building and maintaining Laravel / Vue applications in production.
+I'm a software engineer working on applied AI and backend systems, mostly in Python. Lately I've been building retrieval and agent systems and evaluating where they fail.
 
 ---
 
@@ -15,28 +13,27 @@ I build applied AI and backend systems with a focus on retrieval quality, tool b
 Local NL → SQL with schema grounding, deterministic verification, bounded repair, and read-only execution.
 
 **33% → 39%** EX-compatible match · **75% → 90%** conservative execution success  
-<sub>Frozen 100-query BIRD DEV slice · [View repository →](https://github.com/kolihhan/semantic-text2sql-agent)</sub>
+<sub>Frozen 100-query BIRD DEV slice</sub>
 
 ### [Local RAG Search](https://github.com/kolihhan/local-rag-search)
 
 Hybrid retrieval with BM25, local Qwen embeddings, and reciprocal rank fusion with visible rank provenance.
 
 **0.7630** Recall@10 · **0.7418** MRR@20 · **0.8438** Hit@10  
-<sub>Frozen 64-query / 5,189-document slice · [View repository →](https://github.com/kolihhan/local-rag-search)</sub>
+<sub>Frozen 64-query / 5,189-document slice</sub>
 
 ### [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor)
 
 A local video QA agent that searches transcripts and decides when it needs to inspect a frame or short clip.
 
 **66.7%** visual-required strict full pass · **100%** visual-tool use on visual questions  
-<sub>Small 12-question paired fixture · [View repository →](https://github.com/kolihhan/hermes-video-tutor)</sub>
+<sub>Small 12-question paired fixture</sub>
 
 ### [Small-Agent QLoRA](https://github.com/kolihhan/small-agent-qlora)
 
-An experiment on whether QLoRA can improve tool use in a small local agent.
+A controlled experiment on whether QLoRA can improve tool use in a small local agent.
 
-**Status:** experiment infrastructure is implemented; there is **no valid Base-vs-LoRA uplift claim yet**.  
-<sub>[View repository →](https://github.com/kolihhan/small-agent-qlora)</sub>
+<sub>Qwen3.5-4B · tool-use evaluation · QLoRA</sub>
 
 ---
 
