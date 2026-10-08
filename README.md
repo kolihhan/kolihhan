@@ -1,120 +1,43 @@
-<p align="center">
-  <img src="./assets/profile-banner.svg" width="100%" alt="Ko Lih Han — Software Engineer, Applied AI and LLM Systems" />
-</p>
+# Ko Lih Han
 
-<p align="center">
-  <strong>Software engineer building applied AI systems that retrieve, reason, use tools, and fail visibly.</strong>
-</p>
+Software engineer working on **applied AI and backend systems**.
 
-<p align="center">
-  <code>Python · FastAPI · local LLMs · retrieval · agents · evaluation · backend systems</code>
-</p>
+I mostly build with Python and FastAPI, with a focus on retrieval, tool-using agents, local models, and evaluation. Before moving deeper into applied AI, I spent several years building and maintaining Laravel / Vue applications in production.
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,fastapi,pytorch,docker,git,sqlite,vue,laravel&perline=8" alt="Python, FastAPI, PyTorch, Docker, Git, SQLite, Vue, Laravel" />
-</p>
+## Selected projects
 
----
+### [Semantic Text-to-SQL](https://github.com/kolihhan/semantic-text2sql-agent)
 
-## About
+A local Text-to-SQL system with schema grounding, deterministic verification, bounded repair, and read-only execution.
 
-I build **applied AI systems around real failure modes** — weak retrieval, wrong SQL that still executes, unnecessary multimodal calls, and small agents that use tools poorly.
+On the current frozen 100-query BIRD DEV slice, guarded verification + repair improved EX-compatible match from **33% to 39%** and conservative execution success from **75% to 90%**.
 
-My projects usually start with a simple local baseline, measure where it breaks, then add the smallest mechanism that improves the system: **retrieval fusion, deterministic verification, semantic revision, or adaptive tool use**. Before focusing on AI, I also spent several years building and maintaining Laravel / Vue applications in production.
+### [Local RAG Search](https://github.com/kolihhan/local-rag-search)
 
-## Selected work
+Hybrid retrieval with BM25, local Qwen embeddings, and reciprocal rank fusion. Results keep BM25, dense, and final fusion ranks visible so failures are easier to inspect.
 
-Four projects, four different reliability problems.
+On a frozen 64-query / 5,189-document slice, hybrid RRF reached **0.7630 Recall@10** and **0.7418 MRR@20**.
 
-<table>
-<tr>
-<td width="50%" valign="top">
+### [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor)
 
-### 🧠 Semantic Text-to-SQL
+A local video QA agent that searches transcripts and decides when it needs to inspect a frame or short clip.
 
-**Problem** — executable SQL can still answer the wrong question.
+On a small 12-question paired fixture, it reached **66.7% strict full pass on visual-required questions** and used a visual tool on **100%** of those questions.
 
-**Mechanism** — clause-guided semantic revision, deterministic verification, bounded repair, read-only execution.
+### [Small-Agent QLoRA](https://github.com/kolihhan/small-agent-qlora)
 
-**Measured baseline** — frozen 100-query BIRD DEV slice:  
-`63% → 82%` execution success  
-`31% → 34%` official EX
+An experiment on whether QLoRA can improve tool use in a small local agent. The agent runtime, training pipeline, leakage guards, and Base-vs-LoRA comparator are implemented; there is **no valid uplift claim yet**.
 
-<sub>Measured numbers predate CGSR; the semantic layer is evaluated separately.</sub>
+## What I work with
 
-<a href="https://github.com/kolihhan/semantic-text2sql-agent"><strong>View project →</strong></a>
-
-</td>
-<td width="50%" valign="top">
-
-### 🔎 Local RAG Search
-
-**Problem** — lexical and dense retrieval fail in different ways.
-
-**Mechanism** — BM25 + local Qwen dense retrieval + reciprocal rank fusion with rank provenance.
-
-**Frozen 64-query / 5,189-doc slice**  
-`0.7630` Recall@10  
-`0.7418` MRR@20
-
-<a href="https://github.com/kolihhan/local-rag-search"><strong>View project →</strong></a>
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🎬 Hermes Video Tutor
-
-**Problem** — transcript-only QA misses visual evidence; always using vision is wasteful.
-
-**Mechanism** — a local agent decides whether transcript evidence is enough or whether to inspect a frame / clip.
-
-**12-case paired fixture**  
-`66.7%` visual-required full pass  
-`100%` visual-tool use on visual questions
-
-<sub>Small self-authored product evaluation, not a broad video-QA benchmark.</sub>
-
-<a href="https://github.com/kolihhan/hermes-video-tutor"><strong>View project →</strong></a>
-
-</td>
-<td width="50%" valign="top">
-
-### 🧪 Small-Agent QLoRA
-
-**Question** — can QLoRA make a local 4B tool agent use search, files, inspection, and Python more reliably?
-
-**Mechanism** — bounded single-model agent loop, trajectory collection, leakage guards, QLoRA training path, and Base-vs-LoRA comparator.
-
-**Status** — experiment infrastructure is implemented; there is **no valid LoRA uplift claim yet**.
-
-<a href="https://github.com/kolihhan/small-agent-qlora"><strong>View experiment →</strong></a>
-
-</td>
-</tr>
-</table>
-
-## How I build
-
-```text
-build a baseline → measure it → inspect failures → add the smallest useful mechanism → measure again
-```
-
-| Area | What I care about |
-|---|---|
-| **Applied AI** | LLMs, RAG, agents, tool use, multimodal systems |
-| **Evaluation** | paired experiments, failure analysis, reproducible runs |
-| **Backend** | Python, FastAPI, REST APIs, SQLite, queues, service boundaries |
-| **Production** | Laravel, Vue.js, deployments, maintenance, operational debugging |
+**Applied AI:** LLMs, RAG, agents, tool use, multimodal systems  
+**Backend:** Python, FastAPI, REST APIs, SQLite, queues  
+**Local AI:** Ollama, Qwen, PyTorch  
+**Web:** Laravel, Vue.js  
+**Engineering:** evaluation, failure analysis, reproducible runs, production debugging
 
 ## Background
 
-**M.S., National Tsing Hua University** — research on context-aware implicit meaning in workplace dialogue.  
-**Software engineering** — production web systems, backend workflows, deployments, and maintenance before moving deeper into applied AI.
+**M.S., National Tsing Hua University** — research on context-aware implicit meaning in workplace dialogue.
 
----
-
-<p align="center">
-  <code>build → measure → inspect failures → improve</code>
-</p>
+I started in software engineering and production web systems, then moved toward applied AI systems where retrieval quality, tool behavior, and failure modes can be measured directly.
