@@ -17,6 +17,8 @@ Use relevant `obra/superpowers:*` skills, especially:
 - `obra/superpowers:requesting-code-review`
 - `obra/superpowers:verification-before-completion`
 
+Repository/user instructions outrank a skill's default ceremony. Use the smallest process that still preserves correctness and verification.
+
 ### Selected PStack toolbox
 
 Use only when the task benefits from it:
@@ -33,7 +35,11 @@ Do not run PStack FULL by default. Avoid ceremony that does not reduce risk.
 
 - `juliusbrussee/caveman:caveman` when available and concise output is useful.
 
-Caveman does not replace engineering rigor.
+Use Caveman primarily for progress updates, routine explanation, and context preservation. It must not compress away final verification evidence, failing checks, uncertainty, caveats, or user actions still required.
+
+Bad: `Done. Tests good.`
+
+Good: `Changed parser.py. Focused tests: 18 passed. Full suite not run. One downstream caller remains unverified.`
 
 ## Skill discovery keywords
 
@@ -56,10 +62,16 @@ Before implementation, verify the currently available skills for:
 4. Define observable success/failure before implementation.
 5. Write or identify the test/check that exposes the current gap.
 6. Implement the smallest useful change; avoid unrelated modernization/refactors.
-7. Run focused tests, then the broader relevant suite.
+7. Run focused tests, then the broader relevant suite when warranted/available.
 8. Review the diff for accidental scope, regressions, secrets, and operational risk.
 9. Use `backnotprop/pstack:blast-radius` / `backnotprop/pstack:interrogate` only when risk justifies it.
 10. Use `obra/superpowers:verification-before-completion` before saying done when available.
+
+## Scope and destructive-action rules
+
+- Unrelated cleanup is not part of a narrow fix. Report it; do not modify it unless required.
+- Do not delete, overwrite important shared artifacts, force-push/reset, run destructive migrations, or change shared configuration/permissions without explicit authorization for that action and scope.
+- A successful edit/build/upload command is not proof that the requested behavior works.
 
 ## Grill handoff
 
@@ -78,4 +90,4 @@ When the user asks to grill/challenge/red-team the implementation, compose this 
 
 ## Completion evidence
 
-A completion report should name what changed and the evidence used to verify it: test results, build output, live behavior, diff review, or another task-appropriate check.
+A completion report should name what changed and the evidence used to verify it: test results, build output, live behavior, diff review, or another task-appropriate check. Explicitly state material checks that were not run.
