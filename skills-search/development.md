@@ -2,27 +2,38 @@
 
 Default engineering workflow for feature work, bug fixes, refactors, production changes, and project development.
 
-## Default stack
+## Preferred existing skills
 
-`Superpowers = main development OS`
+Verify availability at runtime.
 
-Use its disciplined flow for requirements/design, planning when warranted, TDD, debugging, review, and verification.
+### Main development OS
 
-`Selected PStack = specialist toolbox`
+Use relevant `obra/superpowers:*` skills, especially:
+
+- `obra/superpowers:brainstorming`
+- `obra/superpowers:writing-plans`
+- `obra/superpowers:test-driven-development`
+- `obra/superpowers:systematic-debugging`
+- `obra/superpowers:requesting-code-review`
+- `obra/superpowers:verification-before-completion`
+
+### Selected PStack toolbox
 
 Use only when the task benefits from it:
 
-- `how` — unfamiliar subsystem, ownership/layering, runtime flow.
-- `architect` — non-trivial interfaces/module shape before coding.
-- `arena` — multiple genuinely plausible approaches where one-shot choice is risky.
-- `blast-radius` — inspect what a change could break beyond the diff.
-- `interrogate` — adversarial or multi-angle review for important changes.
+- `backnotprop/pstack:how` — unfamiliar subsystem, ownership/layering, runtime flow.
+- `backnotprop/pstack:architect` — non-trivial interfaces/module shape before coding.
+- `backnotprop/pstack:arena` — multiple genuinely plausible approaches where one-shot choice is risky.
+- `backnotprop/pstack:blast-radius` — inspect what a change could break beyond the diff.
+- `backnotprop/pstack:interrogate` — adversarial or multi-angle review for important changes.
 
 Do not run PStack FULL by default. Avoid ceremony that does not reduce risk.
 
-`Caveman = communication/token layer`
+### Communication/token layer
 
-Use it to keep progress and explanations compact. It does not replace engineering rigor.
+- `juliusbrussee/caveman:caveman` when available and concise output is useful.
+
+Caveman does not replace engineering rigor.
 
 ## Skill discovery keywords
 
@@ -47,8 +58,14 @@ Before implementation, verify the currently available skills for:
 6. Implement the smallest useful change; avoid unrelated modernization/refactors.
 7. Run focused tests, then the broader relevant suite.
 8. Review the diff for accidental scope, regressions, secrets, and operational risk.
-9. Use `blast-radius` / `interrogate` only when risk justifies it.
-10. Verify the final behavior with real evidence before saying done.
+9. Use `backnotprop/pstack:blast-radius` / `backnotprop/pstack:interrogate` only when risk justifies it.
+10. Use `obra/superpowers:verification-before-completion` before saying done when available.
+
+## Grill handoff
+
+When the user asks to grill/challenge/red-team the implementation, compose this mode with `grill-mode.md` instead of inventing another review process.
+
+`openai/openai-agents-python:.agents/skills/implementation-final-review` is a strong zero-base final implementation audit candidate, but its own trigger contract is restrictive: use it only when explicitly invoked by the user or when repository instructions authorize automatic invocation.
 
 ## Guardrails
 

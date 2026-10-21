@@ -29,8 +29,12 @@ When working in another repository, inspect and respect that repository's own in
 
 ## Mode composition
 
-Modes may compose. Example:
+Modes may compose.
 
 `Take over unfamiliar repo + implement feature` -> Claude-like Workflow -> Repo Understanding -> Development.
 
 `Research a technical choice + implement it` -> Research Mode Heavy -> Development.
+
+`Grill this` / `challenge this` / `red-team this` -> Grill Mode, composed with the relevant domain mode when needed.
+
+`Grill this HEAVY` -> Grill Mode with the strongest currently available independent/adversarial review skills justified by the task; do not blindly enable every reviewer.
