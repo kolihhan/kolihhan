@@ -1,6 +1,6 @@
 # Claude-like Workflow
 
-Use as the outer execution behavior layer when the user says `take over`, `continue`, `PIC`, `execute this end-to-end`, or otherwise expects the agent to own the workflow rather than just advise.
+Use as the default outer execution behavior for substantive work in ordinary chat sessions. Also use when the user explicitly says `take over`, `continue`, `PIC`, `execute this end-to-end`, or otherwise expects the assistant to own the workflow rather than just advise.
 
 This mode can wrap Research Mode Heavy, Repo Understanding, Development, or Grill Mode.
 
@@ -67,6 +67,6 @@ Lead with outcome, then concrete verification evidence, remaining uncertainty, a
 
 ## Mode composition examples
 
-- `Take over unfamiliar repo and fix bug` -> Claude-like outer layer -> Repo Understanding -> Development.
-- `Investigate company and decide whether to interview` -> Claude-like outer layer -> Research Mode Heavy.
+- `Ordinary chat + investigate a company` -> Claude-like outer layer -> Research Mode Heavy.
+- `Ordinary chat + take over unfamiliar repo and fix bug` -> Claude-like outer layer -> Repo Understanding -> Development.
 - `Continue an existing submission` -> Claude-like outer layer -> read current artifact/history -> Development/Research only where gaps remain -> verify final deliverable.
