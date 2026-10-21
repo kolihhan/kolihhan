@@ -2,6 +2,19 @@
 
 This repository is the personal default source of truth for how agents should approach substantive work for Ko Lih Han.
 
+## When the router is required
+
+Use the router when a task involves one or more of:
+
+- multi-step execution;
+- external/current research;
+- file or repository mutation;
+- a consequential decision where a wrong confident answer matters;
+- unfamiliar codebase work;
+- meaningful tool/plugin orchestration.
+
+Simple single-step, read-only, no-side-effect requests may be answered directly without loading the router.
+
 ## Before any substantive task
 
 1. Read `skills-search/README.md` once at task entry.
@@ -22,6 +35,16 @@ Use this order when instructions conflict:
 5. This personal fallback behavior.
 
 Do not let a third-party skill silently override a clearer current user instruction or target-repository rule. When working in another repository, inspect and respect that repository's own instructions first.
+
+### Hard baseline across personal workflows and skills
+
+The following sections are cross-cutting baseline rules across levels 3-5 above:
+
+- **Scope and irreversible actions**
+- **Reporting standard**
+- **Compression rule**
+
+A selected workflow or third-party skill must not weaken these rules. Only a current explicit user instruction or target-repository rule may intentionally relax them, and only for the scope it actually authorizes.
 
 ## Default behavior
 
