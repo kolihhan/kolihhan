@@ -1,6 +1,6 @@
 # Skills Search Router
 
-Use this file before substantive work to choose the smallest correct workflow and discover the right skills at runtime.
+Use this file once at substantive task entry to choose the smallest correct workflow and discover the right skills at runtime.
 
 ## Task routing
 
@@ -11,6 +11,16 @@ Use this file before substantive work to choose the smallest correct workflow an
 | understand, trace, explain, reverse engineer, old/unfamiliar repo | Repo Understanding | `repo-understanding.md` |
 | take over, continue, PIC, execute end-to-end, resume prior work | Claude-like Workflow | `claude-like-workflow.md` |
 | grill, challenge, red-team, tear apart, prove, stress-test, find blind spots | Grill Mode | `grill-mode.md` |
+
+## Routing rule
+
+Classify once, then compose modes as needed.
+
+Claude-like Workflow is an outer execution layer, not a reason to route again. After it selects the relevant inner mode(s), continue execution without returning to this README unless the user's task materially changes.
+
+Bad: `Claude-like -> ORIENT -> read README -> Claude-like -> ORIENT -> read README ...`
+
+Good: `Read README once -> Claude-like outer layer -> Repo Understanding -> Development -> execute/verify/report.`
 
 ## Runtime skill discovery
 
@@ -42,9 +52,9 @@ Default stack:
 
 - `obra/superpowers:*` = main development OS
 - selected `backnotprop/pstack:*` = specialist engineering tools
-- `juliusbrussee/caveman:caveman` = concise communication/token layer when available
+- `juliusbrussee/caveman:caveman` = concise progress/communication layer when available
 
-Do not keep PStack FULL permanently enabled. See `development.md`.
+Do not keep PStack FULL permanently enabled. Do not let compression hide final verification or uncertainty. See `development.md`.
 
 ### Repo Understanding
 
@@ -58,11 +68,11 @@ Add persistent codebase-mapping/documentation only when the task actually needs 
 
 ### Claude-like Workflow
 
-This is the execution behavior layer:
+This is the outer execution behavior layer:
 
 `READ -> ORIENT -> ACT -> VERIFY -> UPDATE SOURCE OF TRUTH -> REPORT`
 
-It can wrap the other modes.
+It can wrap the other modes. It does not recursively re-route after inner modes are selected.
 
 ### Grill Mode
 
@@ -94,3 +104,11 @@ Before claiming a task is done:
 - cite or point to evidence;
 - disclose any unresolved uncertainty or blocker;
 - do not convert weak evidence into a strong claim.
+
+Bad: tool returned success -> `done`.
+
+Good: tool returned success -> inspect resulting state -> run/check relevant verification -> report exactly what was and was not checked.
+
+## Router regression tests
+
+Use `pressure-tests.md` after changing routing, scope, verification, reporting, or safety behavior. Prefer fresh-context runs; patch the smallest failed rule rather than adding broad new process.
