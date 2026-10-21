@@ -2,13 +2,13 @@
 
 Use for unfamiliar, old, inherited, recovered, or poorly documented repositories where the goal is to reconstruct what the code actually does.
 
-## Default stack
+## Preferred existing skills
 
-`Understand Anything + PStack how + Superpowers`
+Verify availability at runtime. Preferred candidates:
 
-- **Understand Anything** — broad codebase structure, component relationships, knowledge graph when useful.
-- **PStack `how`** — subsystem ownership, layering, runtime flow, and placement questions.
-- **Superpowers** — process discipline, evidence checks, and transition into implementation when changes are requested.
+- `egonex-ai/understand-anything:understand` — broad codebase structure, component relationships, knowledge graph when useful.
+- `backnotprop/pstack:how` — subsystem ownership, layering, runtime flow, and placement questions.
+- relevant `obra/superpowers:*` skills — process discipline, debugging/review/verification, and transition into implementation when changes are requested.
 
 Add a persistent codebase map only when the user needs reusable onboarding/documentation. Do not generate documentation just to feel productive.
 
@@ -23,7 +23,7 @@ Search current skills for:
 - knowledge graph
 - code documentation / onboarding
 
-Prefer `Understand Anything` when available for full-repo understanding, then targeted tools for unresolved flows.
+Prefer `egonex-ai/understand-anything:understand` when available for full-repo understanding, then targeted tools for unresolved flows.
 
 ## Workflow
 
@@ -35,6 +35,10 @@ Prefer `Understand Anything` when available for full-repo understanding, then ta
 6. Build the smallest useful mental model: architecture, important files, data/control flow, invariants, failure points.
 7. Distinguish what is proven from code from what is inferred.
 8. If implementation work follows, hand off to Development with the discovered constraints intact.
+
+## Grill handoff
+
+When the user asks to challenge the reconstructed understanding, compose with `grill-mode.md`; use adversarial review to attack assumptions, not to replace source tracing.
 
 ## Evidence rules
 
