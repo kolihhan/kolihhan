@@ -6,9 +6,21 @@ Use for high-stakes research, surveys, company/person checks, technical comparis
 
 Activate when the user says `Research Mode Heavy`, or when the task clearly needs broad current evidence, multiple-source verification, or adversarial fact-checking.
 
+## Preferred existing skills
+
+Verify availability at runtime. Preferred candidates:
+
+- `imbad0202/academic-research-skills:deep-research` — broad/deep research pipeline.
+- `axiomantic/spellbook:skills/fact-checking` — verify technical/factual claims.
+- `axiomantic/spellbook:skills/dehallucination` — verify that AI-generated references/assertions are real.
+- `axiomantic/spellbook:skills/devils-advocate` — challenge assumptions and conclusions.
+- `cursor/plugins:verify-this` — turn a concrete claim into a falsifiable verification check using fresh evidence.
+
+Do not assume these IDs are installed forever. Search the current catalog first and use the closest verified equivalent when unavailable.
+
 ## Skill discovery keywords
 
-Search for skills around:
+Also search for current strong equivalents around:
 
 - deep research
 - academic/literature research
@@ -17,8 +29,6 @@ Search for skills around:
 - dehallucination
 - contradiction / devil's advocate review
 - uncertainty decomposition
-
-Preferred candidates when currently available include strong deep-research pipelines and independent dehallucination/fact-checking skills. Verify availability at runtime instead of assuming names.
 
 ## Workflow
 
