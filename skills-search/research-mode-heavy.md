@@ -2,6 +2,8 @@
 
 Use for high-stakes research, surveys, company/person checks, technical comparisons, market scans, literature review, or any question where a wrong confident answer is costly.
 
+Follow the root `AGENTS.md` for precedence, scope/irreversible actions, reporting evidence, and compression safety.
+
 ## Trigger
 
 Activate when the user says `Research Mode Heavy`, or when the task clearly needs broad current evidence, multiple-source verification, or adversarial fact-checking.
@@ -50,7 +52,7 @@ Prefer:
 
 Use community evidence for experience/sentiment, not as a substitute for authoritative facts.
 
-Do not infer strong conclusions from weak proxies. Examples: an English JD, multinational brand, overseas office, high salary, OA, or global-talent language does not by itself prove visa sponsorship.
+Do not infer strong conclusions from weak proxies. Examples: a benchmark score, vendor claim, prominent customer list, or GitHub popularity does not by itself prove production reliability or real-world effectiveness.
 
 ## Output contract
 
