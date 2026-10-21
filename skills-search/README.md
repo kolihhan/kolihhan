@@ -1,6 +1,6 @@
 # Skills Search Router
 
-Use this file once at substantive task entry to choose the smallest correct workflow and discover the right skills at runtime.
+Use this file once at substantive task entry to choose the smallest correct workflow. Exact preferred skill IDs live in the relevant mode file, not here.
 
 ## Task routing
 
@@ -24,7 +24,7 @@ Good: `Read README once -> Claude-like outer layer -> Repo Understanding -> Deve
 
 ## Runtime skill discovery
 
-Before execution, search the currently available skill/plugin catalog using task-specific keywords and exact preferred IDs from the relevant mode file.
+After routing, read the selected mode file(s) and discover/verify the currently available skills/plugins there.
 
 - Prefer installed or reproducibly pinned skills.
 - Treat `discovery_only` catalog entries as candidates, not guaranteed installed capabilities.
@@ -32,58 +32,13 @@ Before execution, search the currently available skill/plugin catalog using task
 - Load only the skills needed for the task; do not enable a large suite just because it exists.
 - If a preferred skill is unavailable, use the closest verified equivalent and continue rather than blocking the task.
 
-## Default combinations
+## Mode roles
 
-### Research Mode Heavy
-
-Preferred candidates when available:
-
-- `imbad0202/academic-research-skills:deep-research`
-- `axiomantic/spellbook:skills/fact-checking`
-- `axiomantic/spellbook:skills/dehallucination`
-- `axiomantic/spellbook:skills/devils-advocate`
-- `cursor/plugins:verify-this`
-
-Use primary/first-party sources and independent verification. See `research-mode-heavy.md`.
-
-### Development
-
-Default stack:
-
-- `obra/superpowers:*` = main development OS
-- selected `backnotprop/pstack:*` = specialist engineering tools
-- `juliusbrussee/caveman:caveman` = concise progress/communication layer when available
-
-Do not keep PStack FULL permanently enabled. Do not let compression hide final verification or uncertainty. See `development.md`.
-
-### Repo Understanding
-
-Preferred candidates when available:
-
-- `egonex-ai/understand-anything:understand`
-- `backnotprop/pstack:how`
-- relevant `obra/superpowers:*` process/verification skills
-
-Add persistent codebase-mapping/documentation only when the task actually needs a reusable map.
-
-### Claude-like Workflow
-
-This is the outer execution behavior layer:
-
-`READ -> ORIENT -> ACT -> VERIFY -> UPDATE SOURCE OF TRUTH -> REPORT`
-
-It can wrap the other modes. It does not recursively re-route after inner modes are selected.
-
-### Grill Mode
-
-This is a router to existing adversarial/verification skills, not a separate invented methodology.
-
-Typical core candidates:
-
-- `axiomantic/spellbook:skills/devils-advocate`
-- `cursor/plugins:verify-this`
-
-Then add domain-specific reviewers only when warranted. See `grill-mode.md`.
+- **Research Mode Heavy** — high-stakes evidence gathering, verification, counter-evidence, and uncertainty handling. See `research-mode-heavy.md`.
+- **Development** — implementation/debugging with the smallest sufficient engineering process. See `development.md`.
+- **Repo Understanding** — reconstruct unfamiliar code from source, runtime flow, tests, and history. See `repo-understanding.md`.
+- **Claude-like Workflow** — outer execution layer for take-over/PIC/end-to-end tasks. See `claude-like-workflow.md`.
+- **Grill Mode** — adversarial review router using existing verification/reviewer skills. See `grill-mode.md`.
 
 ## Composition examples
 
@@ -95,19 +50,9 @@ Then add domain-specific reviewers only when warranted. See `grill-mode.md`.
 - Grill a code change: `Development -> Grill Mode`
 - Grill a spec/plan before execution: `Grill Mode -> Development`
 
-## Global quality gate
+## Global behavior
 
-Before claiming a task is done:
-
-- confirm the requested artifact/action actually exists;
-- run the relevant tests/checks or inspect the resulting state;
-- cite or point to evidence;
-- disclose any unresolved uncertainty or blocker;
-- do not convert weak evidence into a strong claim.
-
-Bad: tool returned success -> `done`.
-
-Good: tool returned success -> inspect resulting state -> run/check relevant verification -> report exactly what was and was not checked.
+Global precedence, scope/irreversible-action rules, evidence/reporting rules, and compression safety are defined canonically in `../AGENTS.md`. Mode files and third-party skills should point back to those rules rather than duplicate or weaken them.
 
 ## Router regression tests
 
