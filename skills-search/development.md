@@ -2,6 +2,8 @@
 
 Default engineering workflow for feature work, bug fixes, refactors, production changes, and project development.
 
+Follow the root `AGENTS.md` for precedence, scope/irreversible actions, reporting evidence, and compression safety. This file adds development-specific routing and execution guidance only.
+
 ## Preferred existing skills
 
 Verify availability at runtime.
@@ -35,11 +37,7 @@ Do not run PStack FULL by default. Avoid ceremony that does not reduce risk.
 
 - `juliusbrussee/caveman:caveman` when available and concise output is useful.
 
-Use Caveman primarily for progress updates, routine explanation, and context preservation. It must not compress away final verification evidence, failing checks, uncertainty, caveats, or user actions still required.
-
-Bad: `Done. Tests good.`
-
-Good: `Changed parser.py. Focused tests: 18 passed. Full suite not run. One downstream caller remains unverified.`
+Use it for progress updates, routine explanation, and context preservation subject to the root `AGENTS.md` compression rule.
 
 ## Skill discovery keywords
 
@@ -67,27 +65,15 @@ Before implementation, verify the currently available skills for:
 9. Use `backnotprop/pstack:blast-radius` / `backnotprop/pstack:interrogate` only when risk justifies it.
 10. Use `obra/superpowers:verification-before-completion` before saying done when available.
 
-## Scope and destructive-action rules
-
-- Unrelated cleanup is not part of a narrow fix. Report it; do not modify it unless required.
-- Do not delete, overwrite important shared artifacts, force-push/reset, run destructive migrations, or change shared configuration/permissions without explicit authorization for that action and scope.
-- A successful edit/build/upload command is not proof that the requested behavior works.
-
 ## Grill handoff
 
 When the user asks to grill/challenge/red-team the implementation, compose this mode with `grill-mode.md` instead of inventing another review process.
 
 `openai/openai-agents-python:.agents/skills/implementation-final-review` is a strong zero-base final implementation audit candidate, but its own trigger contract is restrictive: use it only when explicitly invoked by the user or when repository instructions authorize automatic invocation.
 
-## Guardrails
+## Development-specific guardrails
 
-- No speculative refactor while fixing a bounded issue.
-- No "tests should pass" claims without running them when execution is available.
 - Do not silently weaken tests to make implementation pass.
 - Preserve public interfaces unless the requested change requires otherwise.
 - Stop broad/risky changes when the evidence does not justify them.
 - Prefer one working path over extra abstractions.
-
-## Completion evidence
-
-A completion report should name what changed and the evidence used to verify it: test results, build output, live behavior, diff review, or another task-appropriate check. Explicitly state material checks that were not run.
