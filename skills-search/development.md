@@ -33,11 +33,18 @@ Use only when the task benefits from it:
 
 Do not run PStack FULL by default. Avoid ceremony that does not reduce risk.
 
+### Optional scope / overengineering guard
+
+- `lennney/stop-that-shit:stop-that-shit` — use when task boundaries are unusually strict, review/answer must remain read-only, implementation is drifting into speculative hardening or unrelated scope, or verification/delegation is repeating without new evidence.
+
+Treat it as a guardrail, not a separate workflow mode. Ordinary validation, retries, dependencies, or normal verification are not enough to trigger it. Prefer the host Guard when runtime enforcement of file, mutation, dependency, or subagent boundaries is specifically useful; otherwise the Skill alone is sufficient.
+
 ### Communication/token layer
 
 - `juliusbrussee/caveman:caveman` when available and concise output is useful.
+- `lennney/stop-that-shit:stss` for reader-facing prose when defensive disclaimers, stacked hedging, or self-protective narration need tightening without deleting meaningful uncertainty or limitations.
 
-Use it for progress updates, routine explanation, and context preservation subject to the root `AGENTS.md` compression rule.
+Use Caveman for progress updates, routine explanation, and context preservation subject to the root `AGENTS.md` compression rule. Use STSS only for writing/auditing prose; do not treat it as a general code or workflow skill.
 
 ## Skill discovery keywords
 
@@ -49,8 +56,9 @@ Before implementation, verify the currently available skills for:
 - implementation-plan execution
 - code review
 - blast radius / adversarial review
+- scope control / overengineering guard
 - verification before completion
-- concise communication
+- concise communication / defensive-writing cleanup
 
 ## Workflow
 
