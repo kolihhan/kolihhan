@@ -22,20 +22,6 @@ Local NL → SQL with schema grounding, deterministic verification, bounded repa
 **33% → 39%** BIRD EX-compatible match · **75% → 90%** conservative execution success  
 <sub>Frozen 100-query BIRD DEV slice</sub>
 
-### [Local RAG Search](https://github.com/kolihhan/local-rag-search)
-
-Hybrid retrieval with BM25, local Qwen embeddings, reciprocal rank fusion, and visible rank provenance.
-
-**0.7630** Recall@10 · **0.7418** MRR@20 · **0.8438** Hit@10  
-<sub>Frozen 64-query / 5,189-document slice</sub>
-
-### [Hermes Video Tutor](https://github.com/kolihhan/hermes-video-tutor)
-
-A local multimodal video QA agent that decides when transcript evidence is enough and when it needs to inspect a frame or short clip.
-
-**66.7%** visual-required strict full pass · **100%** visual-tool use on visual questions  
-<sub>Small 12-question paired fixture</sub>
-
 ## How I build
 
 `baseline → measure → inspect failures → smallest useful change → measure again`
