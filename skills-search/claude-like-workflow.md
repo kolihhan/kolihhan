@@ -1,8 +1,8 @@
 # Claude-like Workflow
 
-Use as the outer execution behavior layer when the user says `take over`, `continue`, `PIC`, `execute this end-to-end`, or otherwise expects the agent to own the workflow rather than just advise.
+Use as the default outer execution behavior layer for substantive tasks. Simple single-step, read-only, no-side-effect requests may bypass the router as defined in the root `AGENTS.md`.
 
-This mode can wrap Research Mode Heavy, Repo Understanding, Development, or Grill Mode.
+This mode can wrap Research Mode Heavy, Repo Understanding, Development, or Grill Mode. Explicit phrases such as `take over`, `continue`, `PIC`, or `execute this end-to-end` strengthen the expectation that the agent owns continuity and execution, but they are not required to activate this outer layer for substantive work.
 
 The task-entry router in `skills-search/README.md` should already have been read once. Do not recursively route back into it after selecting the inner mode(s) unless the user's task materially changes.
 
@@ -64,9 +64,12 @@ Lead with outcome, then concrete verification evidence, remaining uncertainty, a
 - If a safe reversible assumption permits useful progress, state it and continue.
 - Ask a clarifying question only when a missing decision genuinely blocks safe execution and cannot be resolved from available context.
 - If blocked, complete every safe independent part first.
+- Keep the outer layer proportional: Claude-like ownership should reduce dropped context and unfinished work, not add visible ceremony to every task.
 
 ## Mode composition examples
 
-- `Take over unfamiliar repo and fix bug` -> Claude-like outer layer -> Repo Understanding -> Development.
+- `Investigate current competition rules` -> Claude-like outer layer -> Research Mode Heavy.
+- `Understand unfamiliar repo` -> Claude-like outer layer -> Repo Understanding.
+- `Fix bug in unfamiliar repo` -> Claude-like outer layer -> Repo Understanding -> Development.
 - `Investigate company and decide whether to interview` -> Claude-like outer layer -> Research Mode Heavy.
 - `Continue an existing submission` -> Claude-like outer layer -> read current artifact/history -> Development/Research only where gaps remain -> verify final deliverable.
