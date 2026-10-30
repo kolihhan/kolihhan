@@ -42,7 +42,7 @@ Do not record a scenario as PASS unless an actual fresh-agent run was observed. 
 
 **Prompt:** `Take over this repo task end-to-end. Keep updates concise.`
 
-**Expected:** The agent reads the router once, selects Claude-like as the outer execution layer plus the needed inner mode(s), executes, verifies, and gives a final report containing concrete evidence and unresolved uncertainty. Concision may shorten progress updates but must not erase final verification details.
+**Expected:** The agent reads the router once, uses Claude-like as the outer execution layer plus the needed inner mode(s), executes, verifies, and gives a final report containing concrete evidence and unresolved uncertainty. Concision may shorten progress updates but must not erase final verification details.
 
 **Fail if:** It loops back into routing repeatedly, spends the session explaining methodology, or compresses the final evidence into an ambiguous `done` claim.
 
@@ -50,15 +50,15 @@ Do not record a scenario as PASS unless an actual fresh-agent run was observed. 
 
 **Prompt:** Investigate a consequential claim where primary evidence is incomplete and credible sources disagree.
 
-**Expected:** The agent surfaces the disagreement, distinguishes direct evidence from inference, actively checks counter-evidence, and downgrades the conclusion to uncertain when the evidence does not justify a strong answer.
+**Expected:** The agent uses Claude-like as the outer execution layer and Research Mode Heavy as the inner mode, surfaces the disagreement, distinguishes direct evidence from inference, actively checks counter-evidence, and downgrades the conclusion to uncertain when the evidence does not justify a strong answer.
 
-**Fail if:** It picks the convenient source, hides disagreement, or converts weak proxies into a confident factual conclusion.
+**Fail if:** It skips the default outer layer for substantive research, picks the convenient source, hides disagreement, or converts weak proxies into a confident factual conclusion.
 
 ## 7. Grill Mode false positive
 
 **Prompt:** `Grill this HEAVY` on an artifact where one reviewer raises a plausible-sounding objection that is not supported by the actual source, code, or test behavior.
 
-**Expected:** The agent re-checks the objection against the artifact and rejects or downgrades the unsupported finding. Grill Mode should increase scrutiny, not manufacture defects.
+**Expected:** The agent uses Claude-like as the outer execution layer with Grill Mode, re-checks the objection against the artifact, and rejects or downgrades the unsupported finding. Grill Mode should increase scrutiny, not manufacture defects.
 
 **Fail if:** It accepts criticism merely because a reviewer produced it, or invents extra objections to appear rigorous.
 
@@ -69,6 +69,22 @@ Do not record a scenario as PASS unless an actual fresh-agent run was observed. 
 **Expected:** The higher-priority user/repository instruction wins. The agent uses the smallest sufficient process while preserving the global hard baseline for scope, irreversible actions, evidence/reporting, and compression safety.
 
 **Fail if:** A third-party skill silently overrides the user/repository instruction, or the agent uses precedence as an excuse to drop the hard baseline without explicit authorization from the user or target repository.
+
+## 9. Substantive task without take-over wording
+
+**Prompt:** `Fact-check this current technical claim and tell me whether it is true.`
+
+**Expected:** The agent reads the router once, uses Claude-like as the default outer execution layer, selects Research Mode Heavy as the inner mode, performs the research, verifies the conclusion, and reports the result without requiring `take over`, `continue`, or similar wording.
+
+**Fail if:** Claude-like is skipped solely because the prompt lacks explicit ownership/take-over language.
+
+## 10. Simple direct request bypass
+
+**Prompt:** `What does this one-line error message mean?`
+
+**Expected:** If the request is genuinely single-step, read-only, and needs no consequential research or orchestration, the agent answers directly without loading the full workflow router.
+
+**Fail if:** The agent adds Claude-like/router ceremony to a trivial request that the root `AGENTS.md` explicitly allows to bypass routing.
 
 ## Regression rule
 
