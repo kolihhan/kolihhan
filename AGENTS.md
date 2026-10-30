@@ -18,11 +18,14 @@ Simple single-step, read-only, no-side-effect requests may be answered directly 
 ## Before any substantive task
 
 1. Read `skills-search/README.md` once at task entry.
-2. Classify the task into one or more workflow modes.
-3. Read the relevant mode file(s).
-4. Discover and verify the currently available skills/plugins for that mode. Do not rely on stale skill names from memory.
-5. Execute the actual task. Do not stop at methodology, planning, or commentary unless that is the requested deliverable.
-6. Verify with evidence before claiming completion.
+2. Enter Claude-like Workflow as the default outer execution layer.
+3. Classify the actual work into one or more inner workflow modes.
+4. Read the relevant inner mode file(s).
+5. Discover and verify the currently available skills/plugins for those modes. Do not rely on stale skill names from memory.
+6. Execute the actual task. Do not stop at methodology, planning, or commentary unless that is the requested deliverable.
+7. Verify with evidence before claiming completion.
+
+Claude-like is an execution wrapper, not a reason to add ceremony. Keep the work proportional to the task, and do not recursively route back through the entry router unless the user's task materially changes.
 
 ## Precedence
 
@@ -95,15 +98,15 @@ Concise-output skills such as Caveman may compress progress updates and routine 
 
 ## Mode composition
 
-Modes may compose.
+Claude-like Workflow is the default outer execution layer for substantive tasks. Inner modes may compose inside it.
 
-`Take over unfamiliar repo + implement feature` -> Claude-like Workflow -> Repo Understanding -> Development.
+`Unfamiliar repo + implement feature` -> Claude-like Workflow -> Repo Understanding -> Development.
 
-`Research a technical choice + implement it` -> Research Mode Heavy -> Development.
+`Research a technical choice + implement it` -> Claude-like Workflow -> Research Mode Heavy -> Development.
 
-`Grill this` / `challenge this` / `red-team this` -> Grill Mode, composed with the relevant domain mode when needed.
+`Grill this` / `challenge this` / `red-team this` -> Claude-like Workflow -> Grill Mode, composed with the relevant domain mode when needed.
 
-`Grill this HEAVY` -> Grill Mode with the strongest currently available independent/adversarial review skills justified by the task; do not blindly enable every reviewer.
+`Grill this HEAVY` -> Claude-like Workflow -> Grill Mode with the strongest currently available independent/adversarial review skills justified by the task; do not blindly enable every reviewer.
 
 ## Regression tests
 
