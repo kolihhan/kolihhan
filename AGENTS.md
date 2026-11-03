@@ -46,6 +46,7 @@ The following sections are cross-cutting baseline rules across levels 3-5 above:
 - **Scope and irreversible actions**
 - **Reporting standard**
 - **Compression rule**
+- **Research-to-deploy discipline**
 
 A selected workflow or third-party skill must not weaken these rules. Only a current explicit user instruction or target-repository rule may intentionally relax them, and only for the scope it actually authorizes.
 
@@ -59,6 +60,19 @@ A selected workflow or third-party skill must not weaken these rules. Only a cur
 - For long tasks, keep progress updates short and useful.
 - Report results first, then the evidence needed to support them.
 - If a safe, reversible assumption permits useful progress, state it and continue; ask only when a missing decision blocks safe execution.
+
+## Research-to-deploy discipline
+
+For research-backed implementation, experiments, competition work, discovery systems, ranking/selection logic, model changes, or any workflow that may later be deployed:
+
+- **Do not optimize only for the currently visible benchmark, sample, split, recent failures, hand-picked cases, or one observed production window.** Treat apparent gains as hypotheses until they survive an independent check, holdout, counterexample set, temporal/source shift, ablation, or other task-appropriate generalization test.
+- Research must explain **why** a method or combination works, not only whether it scores better. Identify the mechanism, assumptions, interactions between components, failure modes, and conditions under which the effect should disappear. Prefer causal/mechanistic explanations when the evidence permits; otherwise label the explanation as an inference.
+- Do not stop at finding a reliable combination of existing techniques. Ask what bottleneck the evidence reveals, what assumption is unnecessarily restrictive, what capability is missing, and what smallest new idea/experiment could break through that bottleneck. Distinguish real novelty from parameter tuning or benchmark-specific patching.
+- Use ablations and counterfactual checks where they can separate component contribution from accidental correlation. A more complex system must earn its complexity with evidence.
+- Keep research and deployment connected: convert supported findings into the smallest deployable implementation, then validate the deployed behavior with real execution evidence. Deployment feedback may generate new research questions, but do not silently tune to the same evaluation evidence until the result becomes circular.
+- For a **public repository**, assume GitHub Actions is available and use it aggressively for CI, reproducible experiments, scheduled jobs, artifact generation, validation, and deployment when it is the simplest credible execution path. Do not avoid Actions merely because equivalent private-repo usage might have cost/quota constraints; evaluate the actual repository state first.
+- Public-repo convenience does not authorize leaking secrets, credentials, personal/private data, or connected-source contents. Keep secrets in supported secret stores and keep private evidence outside public artifacts unless the user explicitly makes it public.
+- A deployable result is not the end of the research loop. After deployment, compare expected mechanism vs observed behavior, record regressions/surprises, and decide whether they falsify the hypothesis, expose distribution shift, or reveal the next useful breakthrough direction.
 
 ## Scope and irreversible actions
 
