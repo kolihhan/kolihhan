@@ -32,6 +32,10 @@ Also search for current strong equivalents around:
 - contradiction / devil's advocate review
 - uncertainty decomposition
 
+## Experiment-decision gate
+
+For benchmark, AI-model, training or agent experiments, apply [PRO: Evidence-to-Outcome Research Gates](pro-research-decision-gates.md) before launching another run and after the result. Keep primary outcome, paired regressions, independent validation and costs explicit; reject a negative mechanism instead of accumulating tweaks.
+
 ## Workflow
 
 1. Define the exact question and decision being supported.
