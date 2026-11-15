@@ -1,57 +1,80 @@
-# PRO: Evidence-to-Outcome Research Gates
+# PRO research playbook — discover breakthroughs, not merely reject experiments
 
-**PRO is our operational mnemonic**, not a framework attributed to any Kaggle Grandmaster:
-**P — Proven failure**, **R — Return on experiment**, **O — Out-of-sample proof**.
+**PRO here means professional-grade research practice**, not a named method created or endorsed by Yuanzhe Zhou or any other Grandmaster. This playbook applies to ML competitions, LLM agents, Text-to-SQL and research engineering.
 
-Use this after `AGENTS.md` and the selected research/development workflow whenever proposing or continuing an ML/AI experiment, agent training, data-selection change, benchmark variant, or post-training optimization. It complements — never replaces — the router's scope and evidence rules.
+**Purpose:** continuously discover *new, transferable capability* that changes the real end metric. Stop gates, reproducibility and cost control are supporting tools, **not the research strategy**. A negative small experiment rejects a specific implementation on a specific population; it does **not** automatically reject its entire hypothesis family.
 
-## P: Proven failure, not intuition
+## Lessons grounded in actual winning write-ups
 
-1. State the **real end metric** first (e.g. strict Text-to-SQL execution match or independent autonomous agent task success), not proxy improvements (SQL validity, training loss, next-action accuracy, checkpoint existence, completion alone).
-2. Establish current best **with exact population, model/version, source checksum, run/artifact, and scoring contract**. Label old/invalid, partial, synthetic, and retrospective evidence explicitly.
-3. Decompose *paired* failures using preexisting traces: generator candidate absent vs selector error; schema/values/join/grain; wrong tool choice vs search/termination vs environment/format. Distinguish observable failure from assumed cause.
-4. State a **falsifiable mechanism**: why one small intervention should correct that failure on *new tasks*, when it should not, and the expected downside. Check oracle/headroom before adding selectors or more candidates.
-5. Do not construct examples using protected evaluation answers. Never train or tune on GAIA evaluation or frozen BIRD DEV identifiers.
+- **LLM Prompt Recovery, fifth place (Zhou / Zeng / Abulkhanov):** compared prompt distributions, constructed ~500k training samples, combined learned representations, embedding retrieval, Mistral-generated candidates and reranking. Crucially, they inspected the concrete T5 tokenizer behavior when a seemingly clever token trick failed to transfer to the leaderboard. *Lesson:* design several components that address different information bottlenecks; investigate distribution/implementation mismatches rather than keep tuning one score.
+  - Primary source: https://www.kaggle.com/competitions/llm-prompt-recovery/writeups/z-d-z-5th-place-solution
+- **CMI sensor challenge, winning-team write-up:** used signal preprocessing, features and input orientation/subject effects plus ensemble diversity rather than one mandatory fashionable model. *Lesson:* find task/data structure that the original system is not representing.
+  - Primary source: https://www.kaggle.com/competitions/cmi-detect-behavior-with-sensor-data/writeups/cmi-1st-place-solution
+- **Other Kaggle Grandmasters:** domain/data exploration, validation design, shift checks, feature engineering and quick iteration are repeated themes; they are not a guarantee of any individual win.
+  - Source: https://developer.nvidia.com/blog/kaggle-grandmasters-unveil-winning-strategies-for-data-science-superpowers/
 
-## R: Return on experiment, not experiment count
+These are **examples to reason from, not recipes or claims of a universal method**.
 
-Before spending GPU, many model calls, or CI quota, record in the existing PR/issue (no extra tracker):
+## The operating loop: UNDERSTAND → INVENT → TEST → LEARN → TRANSFER → REPEAT
+
+### 1. Understand the *information and capability bottleneck*
+
+Read the actual task contract, metric, constraints, data families, schema/trajectory structure, train/eval shift and physical runtime before inventing code. Study top methods **and their failures**, alongside simple baselines.
+
+For each failure, ask whether the model lacked **input evidence**, **the right representation**, **candidate-generation capability**, **a decision policy**, or **a reliable execution environment**. Use paired error traces, retrieval headroom and oracle diagnostics when they distinguish causes. Do not confuse a plausible story with a confirmed causal attribution.
+
+### 2. Invent multiple *different* mechanisms before choosing one
+
+Write a small **idea portfolio**, then select the highest-information, highest-upside feasible idea:
+
+| Search lane | Example mechanism | What new ability/information would it supply? |
+| --- | --- | --- |
+| Data/evidence | Schema-value grounding, source-reliable observations, harder real tool traces | Answer based on previously missing facts |
+| Representation | Relational structure, role/entity reasoning, task-state abstraction | Express relationships not exposed by the baseline |
+| Learning/policy | Better supervised action targets, long-horizon recover/finalize states, distillation from verified traces | Choose actions based on changing state, not memorized shortcuts |
+| Complementary systems | Independent retrieval, verification, candidate generation, ranking **if headroom exists** | Recover different failures rather than repeat the same errors |
+
+Select by **failure coverage × plausible transfer × evidence availability ÷ compute/engineering cost**. This is a prioritization heuristic, not a fabricated numerical formula. A small cheap *mechanism diagnostic* can outrank a costly full run. When all current ideas fail, **go back to source/task research and generate a different hypothesis**, not simply stop working.
+
+### 3. Test mechanisms, not just final scores
+
+Use the smallest controlled experiment that can distinguish your explanation from competing explanations: frozen comparator, same source/model/tool budget, A/A stability where needed, paired correct→wrong/wrong→correct, costs, and a *mechanism-level observable* (e.g., target column present, evidence retrieved, last-step finalization after tool failure).
+
+**Use a ladder:** cheap deterministic probe → task/source-diverse paired pilot → autonomous end-to-end validation → independent population/physical-DB transfer. Avoid deciding broad hypotheses from 16–20 samples as if they had high statistical power. Choose the numerical promotion gate **for that experiment's uncertainty and costs**, not a universal +3/20 threshold.
+
+### 4. Extract *information* from every experiment
+
+After a negative result, ask:
+
+1. Was the mechanism actually delivered to the model/agent? (e.g. retrieved useful evidence vs noisy examples; supervised end states vs empty labels)
+2. Did its intermediate behavior change as predicted? If no, fix the mechanism/test; if yes but final score did not, inspect downstream bottlenecks and regressions.
+3. Was there *any reachable correct candidate* or *independent rescue*? Does the method add complementary signal or merely duplicate baseline outputs?
+4. Could evaluation noise, dataset/source mismatch, task hardness, model limitations or environment failure explain the result?
+5. **Next decision:** revise a genuinely changed mechanism, combine independently complementary signals, pursue a different lane, or shelve *this concrete candidate*. Preserve the negative result without imposing a permanent ban on the entire field.
+
+Keep the source-of-truth PR/issue short: **observation → causal alternatives → new belief → next decisive test**. Do not create endless process documents, fake conclusions, or repetitive tune loops.
+
+### 5. Transfer and integrate only earned gains
+
+- A win on synthetic/teacher-forced/public data is a **diagnostic or screen**, not evidence of real generalization.
+- Check source-, task-, database-, time-, or model-distribution shifts as relevant and disclose possible contamination/pretraining.
+- Measure **coverage, rescues, regressions, complementarity and cost** before ensembling/reranking. A correct-answer oracle with zero extra headroom says **don't optimize the selector**; try to create better candidates or better evidence.
+- Keep a mechanism only if independent closed-loop/strict primary metrics improve at acceptable cost. Don't obscure failure modes behind aggregate averages.
+- Continue the next high-upside research lane independently if another run is blocked by GPU/service quota; don't pretend a pending job is progress.
+
+## A compact work order (use an existing PR/issue, no new tracker)
 
 ```text
-TARGET         real end-to-end metric and current verified baseline
-CAUSE          paired observed failure; alternative explanations
-HYPOTHESIS     one change + why it should help + falsifier
-POPULATION     frozen task IDs, database/source boundaries, exact model/runtime
-CONTROLS       same task, environment, scorer, budgets and unchanged A/A when relevant
-GATE           numeric minimum net gain, max regressions, cap on runtime/calls
-BUDGET         expected CPU/GPU minutes, calls, source/label availability
-REPRODUCE      code commit, inputs SHA, random seeds, exact artifacts
-DECISION       GO / REJECT / BLOCKED / INCONCLUSIVE / PROMOTE-CANDIDATE
+GOAL      Real metric and current verified baseline; evaluation limitations
+INSIGHT   Specific error pattern + competing explanations
+IDEAS     2-3 distinct mechanisms; select one with highest information/expected gain per cost
+PROBE     What would prove the mechanism is functioning (before full model spend)?
+TEST      Comparison cohort, source independence, paired metrics, budget/stop rule
+RESULT    Physical artifact, score + confidence, rescues/regressions, per-group effects
+LEARNING  What we know now that we didn't know before
+NEXT      One new decisive action: improve mechanism / combine / pivot / transfer / stop candidate
 ```
 
-- Prefer **one causal change** over five prompt variants, extra agents, or framework layers. Reuse current code and native tools.
-- Freeze cohort and decision threshold **before** generating or scoring. Compare **paired rescues and regressions**, strict primary metric, capability/failure buckets, latency, cost, and significance/uncertainty where meaningful.
-- A positive on a public or previously observed development split is only a **screen**; no deployment or resume claim without independent source-, database-, task-, or time-disjoint evaluation.
-- If failures cluster in an environment/step-cap issue, separate operational failure from model capability instead of claiming training fixed it.
-- A training/evaluation run is not complete until the **physical checkpoint/artifact**, step count, and independent scores have been inspected. A green CI or in-progress GPU job is not proof of improvement.
+**Project constraints:** Text-to-SQL stays **Qwen-only with no SQL model training**; QLoRA uses **real Qwen training** with no GAIA evaluation-data supervision. Never claim GPU progress without physical adapter/steps; never claim strict semantic correctness from SQL execution success. No benchmark-driven patching, leakage or fake independent transfer.
 
-## O: Out-of-sample proof and stop rules
-
-| Observation | Decision |
-| --- | --- |
-| No candidate contains the correct answer (oracle/headroom = 0) | Reject selector/reranker/sampling variants on that hypothesis |
-| Net primary-metric gain ≤ 0 or unacceptable regressions | Reject and close the experiment unmerged |
-| Outcome comes only from easier synthetic or teacher-forced tests | Keep as diagnostic; demand autonomous/real transfer check |
-| Only benchmark-known IDs/DBs improved | Mark exploratory, not generalized; freeze new independent cohort first |
-| OOD improvement survives, costs acceptable and failure mechanism agrees | Candidate for smallest production change and real execution validation |
-| Source, GPU allocation or checkpoint not verified | BLOCKED; do not invent a result or spin up redundant jobs |
-
-After each run, add **one short evidence comment** to its existing PR/issue: exact run, checksum, metric counts, paired rescue/regression, cost, caveats, **decision**. Close rejected experiments rather than leaving speculative branches as active recommendations. Do not opportunistically change the threshold or retrieval rule after reading evaluated labels. Budget a new attempt only for a **new falsifiable mechanism**, not another tune of the same failed proxy.
-
-## Project application
-
-- `semantic-text2sql-agent`: Qwen-only, **no SQL training**. Primary metric: strict semantic execution match on independent physical DBs; SQL execution success is secondary. Use grounded output/projection/filters/joins as failure taxonomy, not gold-derived generation patches.
-- `small-agent-qlora`: actual Qwen QLoRA training is permitted; primary metric: independent closed-loop agent success, then matched GAIA generalization. Measure finalization, duplicate calls, failure recovery, horizon length and tool budgets separately. Teacher-forced next-action probes are diagnostic only.
-- `name-kaggle` and `gemma-4-kaggle`: independently validate complementary signal or agent-budget gains before fusion/promotion; never optimize only against a public leaderboard slice.
-
-**Do not claim this method itself improved a score.** It governs decisions; measured model gains still require completed experiments.
+**Success of this playbook is not the number of rejected PRs.** It is the quality of new hypotheses, information gained per experiment, and verified improvement on the project's real outcome.
